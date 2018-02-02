@@ -4,9 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Common\Interfaces.fs" />
-    <Compile Include="Web\ReactXP.fs" />
-    <Compile Include="ReactXP.fs" />
+    <Compile Include="SubscribableEvent\SubscribableEvent.fs" />
+    <Compile Include="ReactXP\Common\Types.fs" />
+    <Compile Include="ReactXP\Common\Interfaces.fs" />
+    <Compile Include="ReactXP\ReactXP.fs" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
