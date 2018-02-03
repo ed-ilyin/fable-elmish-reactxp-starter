@@ -1,5 +1,5 @@
 // ts2fable 0.5.2
-module rec ReactXP.Common.Types
+module rec Types
 open System
 open Fable.Core
 open Fable.Import.JS

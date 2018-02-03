@@ -1,9 +1,10 @@
 // ts2fable 0.5.2
-module rec ReactXP.Common.Interfaces
+module rec Interfaces
 open System
 open Fable.Core
 open Fable.Import.JS
 open SubscribableEvent
+open Fable.Import
 
 
 type [<AllowNullLiteral>] IExports =
@@ -15,7 +16,7 @@ type [<AllowNullLiteral>] IExports =
     // abstract AnimatedTextInput: AnimatedTextInputStatic
     // abstract AnimatedView: AnimatedViewStatic
     abstract App: AppStatic
-    // abstract UserInterface: UserInterfaceStatic
+    abstract UserInterface: UserInterfaceStatic
     // abstract Modal: ModalStatic
     // abstract Popup: PopupStatic
     // abstract Linking: LinkingStatic
@@ -98,26 +99,27 @@ type [<AllowNullLiteral>] App =
 type [<AllowNullLiteral>] AppStatic =
     [<Emit "new $0($1...)">] abstract Create: unit -> App
 
-// type [<AllowNullLiteral>] UserInterface =
-//     abstract setMainView: element: React.ReactElement<obj option> -> unit
-//     abstract registerRootView: viewKey: string * getComponentFunc: Function -> unit
-//     abstract useCustomScrollbars: ?enable: bool -> unit
-//     abstract isHighPixelDensityScreen: unit -> bool
-//     abstract getPixelRatio: unit -> float
-//     abstract measureLayoutRelativeToWindow: ``component``: React.Component<obj option, obj option> -> SyncTasks.Promise<Types.LayoutInfo>
-//     abstract measureLayoutRelativeToAncestor: ``component``: React.Component<obj option, obj option> * ancestor: React.Component<obj option, obj option> -> SyncTasks.Promise<Types.LayoutInfo>
-//     abstract measureWindow: unit -> Types.Dimensions
-//     abstract getContentSizeMultiplier: unit -> SyncTasks.Promise<float>
-//     abstract contentSizeMultiplierChangedEvent: SubscribableEvent<(float -> unit)> with get, set
-//     abstract setMaxContentSizeMultiplier: maxContentSizeMultiplier: float -> unit
-//     abstract dismissKeyboard: unit -> unit
-//     abstract enableTouchLatencyEvents: latencyThresholdMs: float -> unit
-//     abstract touchLatencyEvent: SubscribableEvent<(float -> unit)> with get, set
-//     abstract isNavigatingWithKeyboard: unit -> bool
-//     abstract keyboardNavigationEvent: SubscribableEvent<(bool -> unit)> with get, set
+type [<AllowNullLiteral>] UserInterface =
+    // abstract setMainView: element: React.ReactElement<obj option> -> unit
+    abstract setMainView: element: React.ReactElement -> unit
+    // abstract registerRootView: viewKey: string * getComponentFunc: Function -> unit
+    // abstract useCustomScrollbars: ?enable: bool -> unit
+    // abstract isHighPixelDensityScreen: unit -> bool
+    // abstract getPixelRatio: unit -> float
+    // abstract measureLayoutRelativeToWindow: ``component``: React.Component<obj option, obj option> -> SyncTasks.Promise<Types.LayoutInfo>
+    // abstract measureLayoutRelativeToAncestor: ``component``: React.Component<obj option, obj option> * ancestor: React.Component<obj option, obj option> -> SyncTasks.Promise<Types.LayoutInfo>
+    // abstract measureWindow: unit -> Types.Dimensions
+    // abstract getContentSizeMultiplier: unit -> SyncTasks.Promise<float>
+    // abstract contentSizeMultiplierChangedEvent: SubscribableEvent<(float -> unit)> with get, set
+    // abstract setMaxContentSizeMultiplier: maxContentSizeMultiplier: float -> unit
+    // abstract dismissKeyboard: unit -> unit
+    // abstract enableTouchLatencyEvents: latencyThresholdMs: float -> unit
+    // abstract touchLatencyEvent: SubscribableEvent<(float -> unit)> with get, set
+    // abstract isNavigatingWithKeyboard: unit -> bool
+    // abstract keyboardNavigationEvent: SubscribableEvent<(bool -> unit)> with get, set
 
-// type [<AllowNullLiteral>] UserInterfaceStatic =
-//     [<Emit "new $0($1...)">] abstract Create: unit -> UserInterface
+type [<AllowNullLiteral>] UserInterfaceStatic =
+    [<Emit "new $0($1...)">] abstract Create: unit -> UserInterface
 
 // type [<AllowNullLiteral>] Modal =
 //     abstract isDisplayed: ?modalId: string -> bool

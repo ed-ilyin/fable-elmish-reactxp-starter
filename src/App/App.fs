@@ -1,7 +1,8 @@
 module App
 
 open ReactXP
+open Fable.Helpers.React
 
 
-reactXP.App.initialize(true, true)
-
+do reactXP.App.initialize(true, true)
+do reactXP.UserInterface.setMainView(div [] [ str "abba" ])

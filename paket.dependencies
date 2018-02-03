@@ -11,3 +11,4 @@ nuget Fable.Import.Express
 nuget FSharp.Core
 
 clitool dotnet-fable
+nuget NuGet.CommandLine
