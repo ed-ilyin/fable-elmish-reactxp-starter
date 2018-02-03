@@ -3,6 +3,8 @@ module rec ReactXP
 
 open Fable.Core
 
+module R = Fable.Import.React
+
 
 let [<Import("*","ReactXP")>] reactXP: IExports = jsNative
 
