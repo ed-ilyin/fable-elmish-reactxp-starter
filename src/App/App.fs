@@ -1,7 +1,7 @@
 module App
 
-open ReactXP
 open Fable.Helpers.React
+open Elmish
 open Elmish.ReactXP
 
 let init () = (), Cmd.none

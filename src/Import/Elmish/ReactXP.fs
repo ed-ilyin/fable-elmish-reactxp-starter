@@ -3,12 +3,11 @@ namespace Elmish.ReactXP
 open Fable.Core
 open Elmish
 open ReactXP
-open Fable.Helpers.React
-
-module R = Fable.Import.React
 
 
 module Components =
+    module R = Fable.Import.React
+    
     type [<Pojo>] AppState = {
         render : unit -> R.ReactElement
         setState : AppState -> unit
@@ -34,15 +33,12 @@ module Components =
         override this.render () =
             this.state.render()
 
-// [<Import("AppRegistry","react-native")>]
-// type AppRegistry =
-//     static member registerComponent(appKey:string, getComponentFunc:unit->R.ComponentClass<_>) : unit =
-//         failwith "JS only"
 
 [<RequireQualifiedAccess>]
 module Program =
     open Elmish.React
     open Components
+    open Fable.Helpers.React
 
     /// Setup rendering of root ReactNative component
     let withReactXP (program:Program<_,_,_,_>) =
