@@ -14,12 +14,19 @@ module.exports = {
     devtool: "source-map",
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".webpack.js", ".web.js", ".js", ".jsx"]
+        extensions: [".webpack.js", ".web.js", ".js", ".jsx"],
+        modules: [
+            "node_modules", resolve("./node_modules/")
+        ]
     },
     module: {
         loaders: [
             { test: /\.fs(x|proj)?$/, loader: "fable-loader" },
-            { test: /\.jsx?$/, loader: 'babel-loader' },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                use: { loader: 'babel-loader' },
+            }
         ]
     },
 }

@@ -1,60 +1,52 @@
 namespace Elmish.ReactXP
 
-open Fable.Core
-open Elmish
+// [<AutoOpen>]
+// module Helpers =
+//     open Fable.Helpers.React.Props
+//     open Fable.Core.JsInterop
 
-
-module Components =
-    module R = Fable.Import.React
-    
-    type [<Pojo>] AppState = {
-        render : unit -> R.ReactElement
-        setState : AppState -> unit
-    }
-
-    let mutable appState = None
-
-    type App(props) as this =
-        inherit R.Component<obj,AppState>(props)
-        do
-            match appState with
-            | Some state ->
-                appState <- Some { state with AppState.setState = this.setInitState }
-                this.setInitState state
-            | _ -> failwith "was Elmish.ReactNative.Program.withReactXP called?"
-
-        override this.componentDidMount() =
-            appState <- Some { appState.Value with setState = this.setState }
-
-        override this.componentWillUnmount() =
-            appState <- Some { appState.Value with setState = ignore; render = this.state.render }
-
-        override this.render () =
-            this.state.render()
-
+//     /// `Ref` callback that sets the value of an input textbox after DOM element is created.
+//     /// Can be used to override input box value.
+//     let inline valueOrDefault value =
+//         Ref <| (fun e -> if e |> isNull |> not && !!e?value <> !!value then e?value <- !!value)
 
 [<RequireQualifiedAccess>]
 module Program =
+    open Fable.Import.Browser
     open Elmish.React
-    open Components
-
-    module HR = Fable.Helpers.React
-
+    
     let RX = Fable.Import.ReactXP.reactXP
 
-    /// Setup rendering of root ReactNative component
-    let withReactXP (program:Program<_,_,_,_>) =
-        do RX.App.initialize(true, true)
-        do RX.UserInterface.setMainView(HR.ofType<App,_,_> () [])
-
-        let render dispatch =
+    /// Setup rendering of root React component inside html element identified by placeholderId
+    ///
+    /// This version uses `requestAnimationFrame` to optimize rendering in scenarios with updates
+    /// at a higher rate than 60FPS. While it can be faster it also breaks a few React idioms like
+    /// [Controlled Components](https://reactjs.org/docs/forms.html#controlled-components).
+    ///
+    /// See [Issue #12](https://github.com/fable-elmish/react/issues/12) for details.
+    let withReactXPAnimationFrameOptimized (program:Elmish.Program<_,_,_,_>) =
+        let mutable lastRequest = None
+        let setState dispatch =
             let viewWithDispatch = program.view dispatch
             fun model ->
-                match appState with
-                | Some state ->
-                    state.setState { state with render = fun () -> viewWithDispatch model }
-                | _ ->
-                    appState <- Some { render = fun () -> viewWithDispatch model
-                                       setState = ignore }
-                                       
-        { program with setState = render }
+                match lastRequest with
+                | Some r -> window.cancelAnimationFrame r
+                | _ -> ()
+
+                lastRequest <- Some (window.requestAnimationFrame (fun _ ->
+                    RX.UserInterface.setMainView(
+                        lazyViewWith (fun x y -> obj.ReferenceEquals(x,y)) viewWithDispatch model
+                    )))
+
+        { program with setState = setState }
+
+    /// Setup rendering of root React component inside html element identified by placeholderId
+    let withReactXP (program:Elmish.Program<_,_,_,_>) =
+        let setState dispatch =
+            let viewWithDispatch = program.view dispatch
+            fun model ->
+                RX.UserInterface.setMainView(
+                    lazyViewWith (fun x y -> obj.ReferenceEquals(x,y)) viewWithDispatch model
+                )
+
+        { program with setState = setState }
