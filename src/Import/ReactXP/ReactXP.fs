@@ -1,5 +1,5 @@
 // ts2fable 0.5.2
-module rec ReactXP
+module rec Fable.Import.ReactXP
 
 open Fable.Core
 
@@ -10,116 +10,115 @@ let [<Import("*","ReactXP")>] reactXP: IExports = jsNative
 
 
 type [<AllowNullLiteral>] IExports =
-    // abstract Accessibility: ReactXP.Common.Interfaces.Accessibility
+    // abstract Accessibility: Interfaces.Accessibility
     // abstract ActivityIndicator: obj
-    // abstract Alert: ReactXP.Common.Interfaces.Alert
+    // abstract Alert: Interfaces.Alert
     abstract App: Interfaces.App
 //     abstract Button: obj
 //     abstract Picker: obj
-//     abstract Clipboard: ReactXP.Common.Interfaces.Clipboard
+//     abstract Clipboard: Interfaces.Clipboard
 //     abstract GestureView: obj
-//     abstract Image: ReactXP.Common.Interfaces.ImageConstructor
-//     abstract Input: ReactXP.Common.Interfaces.Input
-//     abstract International: ReactXP.Common.Interfaces.International
+//     abstract Image: Interfaces.ImageConstructor
+//     abstract Input: Interfaces.Input
+//     abstract International: Interfaces.International
 //     abstract Link: obj
-//     abstract Linking: ReactXP.Common.Interfaces.Linking
-//     abstract Location: ReactXP.Common.Interfaces.Location
-//     abstract Modal: ReactXP.Common.Interfaces.Modal
-//     abstract Network: ReactXP.Common.Interfaces.Network
-//     abstract Platform: ReactXP.Common.Interfaces.Platform
-//     abstract Popup: ReactXP.Common.Interfaces.Popup
-//     abstract ScrollView: ReactXP.Common.Interfaces.ScrollViewConstructor
-//     abstract StatusBar: ReactXP.Common.Interfaces.StatusBar
-//     abstract Storage: ReactXP.Common.Interfaces.Storage
-//     abstract Styles: ReactXP.Common.Interfaces.Styles
-//     abstract Text: obj
+//     abstract Linking: Interfaces.Linking
+//     abstract Location: Interfaces.Location
+//     abstract Modal: Interfaces.Modal
+//     abstract Network: Interfaces.Network
+//     abstract Platform: Interfaces.Platform
+//     abstract Popup: Interfaces.Popup
+//     abstract ScrollView: Interfaces.ScrollViewConstructor
+//     abstract StatusBar: Interfaces.StatusBar
+//     abstract Storage: Interfaces.Storage
+//     abstract Styles: Interfaces.Styles
+    abstract Text: obj
 //     abstract TextInput: obj
     abstract UserInterface: Interfaces.UserInterface
-//     abstract UserPresence: ReactXP.Common.Interfaces.UserPresence
+//     abstract UserPresence: Interfaces.UserPresence
 //     abstract View: obj
-//     abstract WebView: ReactXP.Common.Interfaces.WebViewConstructor
+//     abstract WebView: Interfaces.WebViewConstructor
 //     abstract createElement: obj
 //     abstract Children: React.ReactChildren
 //     abstract __spread: obj option
 
 // type Accessibility =
-//     ReactXP.Common.Interfaces.Accessibility
+//     Interfaces.Accessibility
 
 // type ActivityIndicator =
-//     ReactXP.Common.Interfaces.ActivityIndicator
+//     Interfaces.ActivityIndicator
 
 // type Alert =
-//     ReactXP.Common.Interfaces.Alert
+//     Interfaces.Alert
 
 type App = Interfaces.App
 
 // type Button =
-//     ReactXP.Common.Interfaces.Button
+//     Interfaces.Button
 
 // type Picker =
-//     ReactXP.Common.Interfaces.Picker
+//     Interfaces.Picker
 
 // type Clipboard =
-//     ReactXP.Common.Interfaces.Clipboard
+//     Interfaces.Clipboard
 
 // type GestureView =
-//     ReactXP.Common.Interfaces.GestureView
+//     Interfaces.GestureView
 
 // type Image =
-//     ReactXP.Common.Interfaces.Image
+//     Interfaces.Image
 
 // type Input =
-//     ReactXP.Common.Interfaces.Input
+//     Interfaces.Input
 
 // type International =
-//     ReactXP.Common.Interfaces.International
+//     Interfaces.International
 
 // type Link =
-//     ReactXP.Common.Interfaces.Link
+//     Interfaces.Link
 
 // type Linking =
-//     ReactXP.Common.Interfaces.Linking
+//     Interfaces.Linking
 
 // type Location =
-//     ReactXP.Common.Interfaces.Location
+//     Interfaces.Location
 
 // type Modal =
-//     ReactXP.Common.Interfaces.Modal
+//     Interfaces.Modal
 
 // type Network =
-//     ReactXP.Common.Interfaces.Network
+//     Interfaces.Network
 
 // type Platform =
-//     ReactXP.Common.Interfaces.Platform
+//     Interfaces.Platform
 
 // type Popup =
-//     ReactXP.Common.Interfaces.Popup
+//     Interfaces.Popup
 
 // type ScrollView =
-//     ReactXP.Common.Interfaces.ScrollView
+//     Interfaces.ScrollView
 
 // type StatusBar =
-//     ReactXP.Common.Interfaces.StatusBar
+//     Interfaces.StatusBar
 
 // type Storage =
-//     ReactXP.Common.Interfaces.Storage
+//     Interfaces.Storage
 
 // type Styles =
-//     ReactXP.Common.Interfaces.Styles
+//     Interfaces.Styles
 
-// type Text =
-//     ReactXP.Common.Interfaces.Text
+type Text = Interfaces.Text
 
 // type TextInput =
-//     ReactXP.Common.Interfaces.TextInput
+//     Interfaces.TextInput
 
 type UserInterface = Interfaces.UserInterface
 
 // type UserPresence =
-//     ReactXP.Common.Interfaces.UserPresence
+//     Interfaces.UserPresence
 
 // type View =
-//     ReactXP.Common.Interfaces.View
+//     Interfaces.View
 
 // type WebView =
-//     ReactXP.Common.Interfaces.WebView
+//     Interfaces.WebView

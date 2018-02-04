@@ -6,6 +6,7 @@ open Fable.Import.JS
 open SubscribableEvent
 open Fable.Import
 
+module R = Fable.Import.React
 
 type [<AllowNullLiteral>] IExports =
     // abstract ActivityIndicator: ActivityIndicatorStatic
@@ -36,7 +37,7 @@ type [<AllowNullLiteral>] IExports =
     // abstract ScrollViewConstructor: ScrollViewConstructorStatic
     // abstract StatusBar: StatusBarStatic
     // abstract Styles: StylesStatic
-    // abstract Text: TextStatic
+    abstract Text: TextStatic
     // abstract TextInput: TextInputStatic
     // abstract UserPresence: UserPresenceStatic
     // abstract ViewBase: ViewBaseStatic
@@ -296,13 +297,13 @@ type [<AllowNullLiteral>] UserInterfaceStatic =
 // type [<AllowNullLiteral>] StylesStatic =
 //     [<Emit "new $0($1...)">] abstract Create: unit -> Styles
 
-// type [<AllowNullLiteral>] Text =
-//     inherit React.Component<Types.TextProps, obj option>
-//     abstract focus: unit -> unit
-//     abstract blur: unit -> unit
+type [<AllowNullLiteral>] Text =
+    inherit R.Component<Types.TextProps, obj option>
+    abstract focus: unit -> unit
+    abstract blur: unit -> unit
 
-// type [<AllowNullLiteral>] TextStatic =
-//     [<Emit "new $0($1...)">] abstract Create: unit -> Text
+type [<AllowNullLiteral>] TextStatic =
+    [<Emit "new $0($1...)">] abstract Create: unit -> Text
 
 // type [<AllowNullLiteral>] TextInput =
 //     inherit React.Component<Types.TextInputProps, obj option>

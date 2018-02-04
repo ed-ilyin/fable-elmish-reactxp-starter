@@ -2,7 +2,6 @@ namespace Elmish.ReactXP
 
 open Fable.Core
 open Elmish
-open ReactXP
 
 
 module Components =
@@ -22,7 +21,7 @@ module Components =
             | Some state ->
                 appState <- Some { state with AppState.setState = this.setInitState }
                 this.setInitState state
-            | _ -> failwith "was Elmish.ReactNative.Program.withReactNative called?"
+            | _ -> failwith "was Elmish.ReactNative.Program.withReactXP called?"
 
         override this.componentDidMount() =
             appState <- Some { appState.Value with setState = this.setState }
@@ -38,12 +37,15 @@ module Components =
 module Program =
     open Elmish.React
     open Components
-    open Fable.Helpers.React
+
+    module HR = Fable.Helpers.React
+
+    let RX = Fable.Import.ReactXP.reactXP
 
     /// Setup rendering of root ReactNative component
     let withReactXP (program:Program<_,_,_,_>) =
-        do reactXP.App.initialize(true, true)
-        do reactXP.UserInterface.setMainView(ofType<App,_,_> () [])
+        do RX.App.initialize(true, true)
+        do RX.UserInterface.setMainView(HR.ofType<App,_,_> () [])
 
         let render dispatch =
             let viewWithDispatch = program.view dispatch
@@ -54,4 +56,5 @@ module Program =
                 | _ ->
                     appState <- Some { render = fun () -> viewWithDispatch model
                                        setState = ignore }
+                                       
         { program with setState = render }

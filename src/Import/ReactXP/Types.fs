@@ -4,6 +4,8 @@ open System
 open Fable.Core
 open Fable.Import.JS
 
+module R = Fable.Import.React
+
 // let [<Import("*","Types")>] Children: React.ReactChildren = jsNative
 // let [<Import("*","Types")>] animated: Animated.IExports = jsNative
 
@@ -11,59 +13,58 @@ open Fable.Import.JS
 //     abstract AnimatedValue: AnimatedValueStatic
 //     abstract InterpolatedValue: InterpolatedValueStatic
 
-// type ReactNode =
-//     React.ReactNode
+type ReactNode = R.ReactNode
 
 // type ReactInterface =
 //     obj
 
-// type [<AllowNullLiteral>] FlexboxParentStyle =
-//     abstract flexDirection: U4<string, string, string, string> option with get, set
-//     abstract alignSelf: U5<string, string, string, string, string> option with get, set
-//     abstract borderWidth: float option with get, set
-//     abstract borderTopWidth: float option with get, set
-//     abstract borderRightWidth: float option with get, set
-//     abstract borderBottomWidth: float option with get, set
-//     abstract borderLeftWidth: float option with get, set
-//     abstract height: float option with get, set
-//     abstract width: float option with get, set
-//     abstract top: float option with get, set
-//     abstract right: float option with get, set
-//     abstract bottom: float option with get, set
-//     abstract left: float option with get, set
-//     abstract flexGrow: float option with get, set
-//     abstract flexShrink: float option with get, set
-//     abstract flexBasis: float option with get, set
-//     abstract flex: float option with get, set
-//     abstract maxHeight: float option with get, set
-//     abstract maxWidth: float option with get, set
-//     abstract minHeight: float option with get, set
-//     abstract minWidth: float option with get, set
-//     abstract margin: float option with get, set
-//     abstract marginHorizontal: float option with get, set
-//     abstract marginVertical: float option with get, set
-//     abstract marginTop: float option with get, set
-//     abstract marginRight: float option with get, set
-//     abstract marginBottom: float option with get, set
-//     abstract marginLeft: float option with get, set
-//     abstract padding: float option with get, set
-//     abstract paddingHorizontal: float option with get, set
-//     abstract paddingVertical: float option with get, set
-//     abstract paddingTop: float option with get, set
-//     abstract paddingRight: float option with get, set
-//     abstract paddingBottom: float option with get, set
-//     abstract paddingLeft: float option with get, set
-//     abstract position: U2<string, string> option with get, set
+type [<AllowNullLiteral>] FlexboxParentStyle =
+    abstract flexDirection: U4<string, string, string, string> option with get, set
+    abstract alignSelf: U5<string, string, string, string, string> option with get, set
+    abstract borderWidth: float option with get, set
+    abstract borderTopWidth: float option with get, set
+    abstract borderRightWidth: float option with get, set
+    abstract borderBottomWidth: float option with get, set
+    abstract borderLeftWidth: float option with get, set
+    abstract height: float option with get, set
+    abstract width: float option with get, set
+    abstract top: float option with get, set
+    abstract right: float option with get, set
+    abstract bottom: float option with get, set
+    abstract left: float option with get, set
+    abstract flexGrow: float option with get, set
+    abstract flexShrink: float option with get, set
+    abstract flexBasis: float option with get, set
+    abstract flex: float option with get, set
+    abstract maxHeight: float option with get, set
+    abstract maxWidth: float option with get, set
+    abstract minHeight: float option with get, set
+    abstract minWidth: float option with get, set
+    abstract margin: float option with get, set
+    abstract marginHorizontal: float option with get, set
+    abstract marginVertical: float option with get, set
+    abstract marginTop: float option with get, set
+    abstract marginRight: float option with get, set
+    abstract marginBottom: float option with get, set
+    abstract marginLeft: float option with get, set
+    abstract padding: float option with get, set
+    abstract paddingHorizontal: float option with get, set
+    abstract paddingVertical: float option with get, set
+    abstract paddingTop: float option with get, set
+    abstract paddingRight: float option with get, set
+    abstract paddingBottom: float option with get, set
+    abstract paddingLeft: float option with get, set
+    abstract position: U2<string, string> option with get, set
 
-// type [<AllowNullLiteral>] FlexboxChildrenStyle =
-//     abstract alignItems: U4<string, string, string, string> option with get, set
-//     abstract alignContent: U5<string, string, string, string, string> option with get, set
-//     abstract flexWrap: U2<string, string> option with get, set
-//     abstract justifyContent: U5<string, string, string, string, string> option with get, set
+type [<AllowNullLiteral>] FlexboxChildrenStyle =
+    abstract alignItems: U4<string, string, string, string> option with get, set
+    abstract alignContent: U5<string, string, string, string, string> option with get, set
+    abstract flexWrap: U2<string, string> option with get, set
+    abstract justifyContent: U5<string, string, string, string, string> option with get, set
 
-// type [<AllowNullLiteral>] FlexboxStyle =
-//     inherit FlexboxParentStyle
-//     inherit FlexboxChildrenStyle
+type [<AllowNullLiteral>] FlexboxStyle =
+    inherit FlexboxParentStyle
+    inherit FlexboxChildrenStyle
 
 // type InterpolationConfig =
 //     obj
@@ -89,14 +90,13 @@ open Fable.Import.JS
 //     abstract bottom: U2<AnimatedValue, InterpolatedValue> option with get, set
 //     abstract left: U2<AnimatedValue, InterpolatedValue> option with get, set
 
-// type [<AllowNullLiteral>] TransformStyle =
-//     abstract transform: ResizeArray<obj> option with get, set
+type [<AllowNullLiteral>] TransformStyle =
+    abstract transform: ResizeArray<obj> option with get, set
 
 // type [<AllowNullLiteral>] AnimatedTransformStyle =
 //     abstract transform: ResizeArray<obj> option with get, set
 
-// type StyleRuleSet<'T> =
-//     U2<'T, float> option
+type StyleRuleSet<'T> = U2<'T, float> option
 
 // [<RequireQualifiedAccess; CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 // module StyleRuleSet =
@@ -109,8 +109,8 @@ open Fable.Import.JS
 //     let isFloat (v: StyleRuleSet<'T>) = match v with None -> false | Some o -> match o with U2.Case2 _ -> true | _ -> false
 //     let asFloat (v: StyleRuleSet<'T>) = match v with None -> None | Some o -> match o with U2.Case2 o -> Some o | _ -> None
 
-// type StyleRuleSetOrArray<'T> =
-//     U2<StyleRuleSet<'T>, Array<StyleRuleSet<'T>>>
+type StyleRuleSetOrArray<'T> =
+    U2<StyleRuleSet<'T>, Array<StyleRuleSet<'T>>>
 
 // [<RequireQualifiedAccess; CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 // module StyleRuleSetOrArray =
@@ -121,11 +121,11 @@ open Fable.Import.JS
 //     let isArray (v: StyleRuleSetOrArray<'T>) = match v with U2.Case2 _ -> true | _ -> false
 //     let asArray (v: StyleRuleSetOrArray<'T>) = match v with U2.Case2 o -> Some o | _ -> None
 
-// type [<AllowNullLiteral>] StyleRuleSetRecursiveArray<'T> =
-//     inherit Array<U2<StyleRuleSetOrArray<'T>, StyleRuleSetRecursiveArray<'T>>>
+type [<AllowNullLiteral>] StyleRuleSetRecursiveArray<'T> =
+    inherit Array<U2<StyleRuleSetOrArray<'T>, StyleRuleSetRecursiveArray<'T>>>
 
-// type StyleRuleSetRecursive<'T> =
-//     U2<StyleRuleSet<'T>, StyleRuleSetRecursiveArray<'T>>
+type StyleRuleSetRecursive<'T> =
+    U2<StyleRuleSet<'T>, StyleRuleSetRecursiveArray<'T>>
 
 // [<RequireQualifiedAccess; CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>]
 // module StyleRuleSetRecursive =
@@ -136,19 +136,19 @@ open Fable.Import.JS
 //     let isStyleRuleSetRecursiveArray (v: StyleRuleSetRecursive<'T>) = match v with U2.Case2 _ -> true | _ -> false
 //     let asStyleRuleSetRecursiveArray (v: StyleRuleSetRecursive<'T>) = match v with U2.Case2 o -> Some o | _ -> None
 
-// type [<AllowNullLiteral>] ViewAndImageCommonStyle =
-//     inherit FlexboxStyle
-//     inherit TransformStyle
-//     abstract borderWidth: float option with get, set
-//     abstract borderColor: string option with get, set
-//     abstract borderRadius: float option with get, set
-//     abstract borderTopRightRadius: float option with get, set
-//     abstract borderBottomRightRadius: float option with get, set
-//     abstract borderBottomLeftRadius: float option with get, set
-//     abstract borderTopLeftRadius: float option with get, set
-//     abstract overflow: U2<string, string> option with get, set
-//     abstract backgroundColor: string option with get, set
-//     abstract opacity: float option with get, set
+type [<AllowNullLiteral>] ViewAndImageCommonStyle =
+    inherit FlexboxStyle
+    inherit TransformStyle
+    abstract borderWidth: float option with get, set
+    abstract borderColor: string option with get, set
+    abstract borderRadius: float option with get, set
+    abstract borderTopRightRadius: float option with get, set
+    abstract borderBottomRightRadius: float option with get, set
+    abstract borderBottomLeftRadius: float option with get, set
+    abstract borderTopLeftRadius: float option with get, set
+    abstract overflow: U2<string, string> option with get, set
+    abstract backgroundColor: string option with get, set
+    abstract opacity: float option with get, set
 
 // type [<AllowNullLiteral>] AnimatedViewAndImageCommonStyle =
 //     inherit AnimatedFlexboxStyle
@@ -157,24 +157,24 @@ open Fable.Import.JS
 //     abstract backgroundColor: InterpolatedValue option with get, set
 //     abstract opacity: U2<AnimatedValue, InterpolatedValue> option with get, set
 
-// type [<AllowNullLiteral>] ShadowOffset =
-//     abstract width: float with get, set
-//     abstract height: float with get, set
+type [<AllowNullLiteral>] ShadowOffset =
+    abstract width: float with get, set
+    abstract height: float with get, set
 
-// type [<AllowNullLiteral>] ViewStyle =
-//     inherit ViewAndImageCommonStyle
-//     abstract borderStyle: U4<string, string, string, string> option with get, set
-//     abstract wordBreak: U2<string, string> option with get, set
-//     abstract appRegion: U2<string, string> option with get, set
-//     abstract cursor: U2<string, string> option with get, set
-//     abstract shadowOffset: ShadowOffset option with get, set
-//     abstract shadowOpacity: float option with get, set
-//     abstract shadowRadius: float option with get, set
-//     abstract shadowColor: string option with get, set
-//     abstract elevation: float option with get, set
-//     abstract acrylicOpacityUWP: float option with get, set
-//     abstract acrylicSourceUWP: U2<string, string> option with get, set
-//     abstract acrylicTintColorUWP: string option with get, set
+type [<AllowNullLiteral>] ViewStyle =
+    inherit ViewAndImageCommonStyle
+    abstract borderStyle: U4<string, string, string, string> option with get, set
+    abstract wordBreak: U2<string, string> option with get, set
+    abstract appRegion: U2<string, string> option with get, set
+    abstract cursor: U2<string, string> option with get, set
+    abstract shadowOffset: ShadowOffset option with get, set
+    abstract shadowOpacity: float option with get, set
+    abstract shadowRadius: float option with get, set
+    abstract shadowColor: string option with get, set
+    abstract elevation: float option with get, set
+    abstract acrylicOpacityUWP: float option with get, set
+    abstract acrylicSourceUWP: U2<string, string> option with get, set
+    abstract acrylicTintColorUWP: string option with get, set
 
 // type ViewStyleRuleSet =
 //     StyleRuleSet<ViewStyle>
@@ -213,31 +213,31 @@ open Fable.Import.JS
 // type ActivityIndicatorStyleRuleSet =
 //     StyleRuleSet<ActivityIndicatorStyle>
 
-// type [<AllowNullLiteral>] FontInfo =
-//     abstract fontFamily: string option with get, set
-//     abstract fontStyle: U2<string, string> option with get, set
-//     abstract fontWeight: obj option with get, set
+type [<AllowNullLiteral>] FontInfo =
+    abstract fontFamily: string option with get, set
+    abstract fontStyle: U2<string, string> option with get, set
+    abstract fontWeight: obj option with get, set
 
-// type [<AllowNullLiteral>] TextStyle =
-//     inherit ViewStyle
-//     abstract color: string option with get, set
-//     abstract fontFamily: string option with get, set
-//     abstract fontSize: float option with get, set
-//     abstract fontStyle: U2<string, string> option with get, set
-//     abstract fontWeight: obj option with get, set
-//     abstract font: FontInfo option with get, set
-//     abstract letterSpacing: float option with get, set
-//     abstract lineHeight: float option with get, set
-//     abstract textAlign: U5<string, string, string, string, string> option with get, set
-//     abstract textDecorationLine: U4<string, string, string, string> option with get, set
-//     abstract textDecorationStyle: U4<string, string, string, string> option with get, set
-//     abstract textDecorationColor: string option with get, set
-//     abstract writingDirection: U3<string, string, string> option with get, set
-//     abstract textAlignVertical: U4<string, string, string, string> option with get, set
-//     abstract includeFontPadding: bool option with get, set
+type [<AllowNullLiteral>] TextStyle =
+    inherit ViewStyle
+    abstract color: string option with get, set
+    abstract fontFamily: string option with get, set
+    abstract fontSize: float option with get, set
+    abstract fontStyle: U2<string, string> option with get, set
+    abstract fontWeight: obj option with get, set
+    abstract font: FontInfo option with get, set
+    abstract letterSpacing: float option with get, set
+    abstract lineHeight: float option with get, set
+    abstract textAlign: U5<string, string, string, string, string> option with get, set
+    abstract textDecorationLine: U4<string, string, string, string> option with get, set
+    abstract textDecorationStyle: U4<string, string, string, string> option with get, set
+    abstract textDecorationColor: string option with get, set
+    abstract writingDirection: U3<string, string, string> option with get, set
+    abstract textAlignVertical: U4<string, string, string, string> option with get, set
+    abstract includeFontPadding: bool option with get, set
 
-// type TextStyleRuleSet =
-//     StyleRuleSet<TextStyle>
+type TextStyleRuleSet =
+    StyleRuleSet<TextStyle>
 
 // type [<AllowNullLiteral>] AnimatedTextStyle =
 //     inherit AnimatedViewAndImageCommonStyle
@@ -289,14 +289,13 @@ open Fable.Import.JS
 // type PickerStyleRuleSet =
 //     StyleRuleSet<PickerStyle>
 
-// type ComponentBase =
-//     React.Component<obj option, obj option>
+type ComponentBase = R.Component<obj option, obj option>
 
-// type [<AllowNullLiteral>] CommonProps =
-//     abstract ref: U2<string, (ComponentBase option -> unit)> option with get, set
-//     abstract key: U2<string, float> option with get, set
-//     abstract ``type``: obj option option with get, set
-//     abstract children: U2<ReactNode, ResizeArray<ReactNode>> option with get, set
+type [<AllowNullLiteral>] CommonProps =
+    abstract ref: U2<string, (ComponentBase option -> unit)> option with get, set
+    abstract key: U2<string, float> option with get, set
+    abstract ``type``: obj option option with get, set
+    abstract children: U2<ReactNode, ResizeArray<ReactNode>> option with get, set
 
 // type [<AllowNullLiteral>] Stateless =
 //     interface end
@@ -309,11 +308,11 @@ open Fable.Import.JS
 //     abstract accessibilityActions: ResizeArray<string> option with get, set
 //     abstract onAccessibilityAction: (SyntheticEvent -> unit) option with get, set
 
-// type [<RequireQualifiedAccess>] ImportantForAccessibility =
-//     | Auto = 1
-//     | Yes = 2
-//     | No = 3
-//     | NoHideDescendants = 4
+type [<RequireQualifiedAccess>] ImportantForAccessibility =
+    | Auto = 1
+    | Yes = 2
+    | No = 3
+    | NoHideDescendants = 4
 
 // type [<StringEnum>] [<RequireQualifiedAccess>] AriaLive =
 //     | Off
@@ -437,22 +436,22 @@ open Fable.Import.JS
 //     inherit ImagePropsShared
 //     abstract style: StyleRuleSetRecursive<U2<AnimatedImageStyleRuleSet, ImageStyleRuleSet>> option with get, set
 
-// type [<AllowNullLiteral>] TextPropsShared =
-//     inherit CommonProps
-//     abstract selectable: bool option with get, set
-//     abstract numberOfLines: float option with get, set
-//     abstract allowFontScaling: bool option with get, set
-//     abstract maxContentSizeMultiplier: float option with get, set
-//     abstract ellipsizeMode: U3<string, string, string> option with get, set
-//     abstract textBreakStrategy: U3<string, string, string> option with get, set
-//     abstract importantForAccessibility: ImportantForAccessibility option with get, set
-//     abstract onPress: (SyntheticEvent -> unit) option with get, set
-//     abstract id: string option with get, set
-//     abstract onContextMenu: (SyntheticEvent -> unit) option with get, set
+type [<AllowNullLiteral>] TextPropsShared =
+    inherit CommonProps
+    abstract selectable: bool option with get, set
+    abstract numberOfLines: float option with get, set
+    abstract allowFontScaling: bool option with get, set
+    abstract maxContentSizeMultiplier: float option with get, set
+    abstract ellipsizeMode: U3<string, string, string> option with get, set
+    abstract textBreakStrategy: U3<string, string, string> option with get, set
+    abstract importantForAccessibility: ImportantForAccessibility option with get, set
+    abstract onPress: (SyntheticEvent -> unit) option with get, set
+    abstract id: string option with get, set
+    abstract onContextMenu: (SyntheticEvent -> unit) option with get, set
 
-// type [<AllowNullLiteral>] TextProps =
-//     inherit TextPropsShared
-//     abstract style: StyleRuleSetRecursive<TextStyleRuleSet> option with get, set
+type [<AllowNullLiteral>] TextProps =
+    inherit TextPropsShared
+    abstract style: StyleRuleSetRecursive<TextStyleRuleSet> option with get, set
 
 // type [<AllowNullLiteral>] AnimatedTextProps =
 //     inherit TextPropsShared
@@ -862,8 +861,7 @@ open Fable.Import.JS
 //         abstract Steps: intervals: float * ?``end``: bool -> EasingFunction
 //         abstract CubicBezier: x1: float * y1: float * x2: float * y2: float -> EasingFunction
 
-// type SyntheticEvent =
-//     obj
+type SyntheticEvent = obj
 
 // type [<AllowNullLiteral>] ClipboardEvent =
 //     inherit SyntheticEvent
