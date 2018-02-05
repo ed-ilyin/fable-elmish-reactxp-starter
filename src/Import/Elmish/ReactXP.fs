@@ -35,7 +35,10 @@ module Program =
 
                 lastRequest <- Some (window.requestAnimationFrame (fun _ ->
                     RX.UserInterface.setMainView(
-                        lazyViewWith (fun x y -> obj.ReferenceEquals(x,y)) viewWithDispatch model
+                        lazyViewWith
+                            (fun x y -> obj.ReferenceEquals(x,y))
+                            viewWithDispatch
+                            model
                     )))
 
         { program with setState = setState }
@@ -46,7 +49,9 @@ module Program =
             let viewWithDispatch = program.view dispatch
             fun model ->
                 RX.UserInterface.setMainView(
-                    lazyViewWith (fun x y -> obj.ReferenceEquals(x,y)) viewWithDispatch model
+                    lazyViewWith (fun x y -> obj.ReferenceEquals(x,y))
+                        viewWithDispatch
+                        model
                 )
 
         { program with setState = setState }
